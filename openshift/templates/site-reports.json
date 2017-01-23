@@ -177,8 +177,8 @@
     },
     {
       "name": "APPLICATION_DOMAIN",
-      "description": "The exposed hostname that will route to the Beego service",
-      "value": "site-reports.open.paas.redhat.com"
+      "description": "The exposed hostname that will route to the site-report service",
+      "value": "reports"
     },
     {
       "name": "GITHUB_WEBHOOK_SECRET",
