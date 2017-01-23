@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Site Reports - Home</title>
+    <script href="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="/assets/my-element.html">
+    <link rel="import" href="/assets/raw-element/raw-element.html">
+    <!-- PatternFly Styles -->
+    <!-- Note: No other CSS files are needed regardless of what other JS packages located in patternfly/components that you decide to pull in -->
+    <link rel="stylesheet" href="/node_modules/patternfly/dist/css/patternfly.min.css">
+    <link rel="stylesheet" href="/node_modules/patternfly/dist/css/patternfly-additions.min.css">
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <h1>Home</h1>
+    <h2>Groups</h2>
+    <raw-element></raw-element>
+    <ul>
+        <li>Developer Portal</li>
+        <li><my-element>WOO!</my-element></li>
+        <li>.com</li>
+        <li>Customer Portal</li>
+        {{range $site := .}}<li><a href="/site/{{$site.ID}}">{{$site.ID | html}}</a></li>{{end}}
+    </ul>
+</body>
+</html>

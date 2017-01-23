@@ -1,0 +1,18 @@
+{
+  "name": "site-reports",
+  "homepage": "https://github.com/KamiQuasi/site-reports",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#2.0-preview"
+  }
+}

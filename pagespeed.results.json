@@ -1,0 +1,837 @@
+{
+ "kind": "pagespeedonline#result",
+ "id": "http://developers.redhat.com/",
+ "responseCode": 200,
+ "title": "Red Hat Developers | 'Red Hat Developers'",
+ "ruleGroups": {
+  "SPEED": {
+   "score": 74
+  }
+ },
+ "pageStats": {
+  "numberResources": 82,
+  "numberHosts": 29,
+  "totalRequestBytes": "13140",
+  "numberStaticResources": 53,
+  "htmlResponseBytes": "44534",
+  "cssResponseBytes": "553124",
+  "imageResponseBytes": "842203",
+  "javascriptResponseBytes": "1756779",
+  "otherResponseBytes": "41803",
+  "numberJsResources": 28,
+  "numberCssResources": 4
+ },
+ "formattedResults": {
+  "locale": "en_US",
+  "ruleResults": {
+   "AvoidLandingPageRedirects": {
+    "localizedRuleName": "Avoid landing page redirects",
+    "ruleImpact": 0.0,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "Your page has no redirects. Learn more about {{BEGIN_LINK}}avoiding landing page redirects{{END_LINK}}.",
+     "args": [
+      {
+       "type": "HYPERLINK",
+       "key": "LINK",
+       "value": "https://developers.google.com/speed/docs/insights/AvoidRedirects"
+      }
+     ]
+    }
+   },
+   "EnableGzipCompression": {
+    "localizedRuleName": "Enable compression",
+    "ruleImpact": 0.7197000000000001,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "Compressing resources with gzip or deflate can reduce the number of bytes sent over the network."
+    },
+    "urlBlocks": [
+     {
+      "header": {
+       "format": "{{BEGIN_LINK}}Enable compression{{END_LINK}} for the following resources to reduce their transfer size by {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction).",
+       "args": [
+        {
+         "type": "HYPERLINK",
+         "key": "LINK",
+         "value": "https://developers.google.com/speed/docs/insights/EnableCompression"
+        },
+        {
+         "type": "BYTES",
+         "key": "SIZE_IN_BYTES",
+         "value": "6.6KiB"
+        },
+        {
+         "type": "PERCENTAGE",
+         "key": "PERCENTAGE",
+         "value": "71%"
+        }
+       ]
+      },
+      "urls": [
+       {
+        "result": {
+         "format": "Compressing {{URL}} could save {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "https://dcp2.jboss.org/v2/rest/search/resources?newFirst=true&size10=true&sys_type=quickstart&sys_type=video&sys_type=demo&sys_type=jbossdeveloper_example&sys_type=jbossdeveloper_archetype&sys_type=jbossdeveloper_bom&sys_type=article&sys_type=blogpost&sys_type=book&blogbyurl=developers.redhat.com"
+          },
+          {
+           "type": "BYTES",
+           "key": "SIZE_IN_BYTES",
+           "value": "6.6KiB"
+          },
+          {
+           "type": "PERCENTAGE",
+           "key": "PERCENTAGE",
+           "value": "71%"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "LeverageBrowserCaching": {
+    "localizedRuleName": "Leverage browser caching",
+    "ruleImpact": 10.955903604497358,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "Setting an expiry date or a maximum age in the HTTP headers for static resources instructs the browser to load previously downloaded resources from local disk rather than over the network."
+    },
+    "urlBlocks": [
+     {
+      "header": {
+       "format": "{{BEGIN_LINK}}Leverage browser caching{{END_LINK}} for the following cacheable resources:",
+       "args": [
+        {
+         "type": "HYPERLINK",
+         "key": "LINK",
+         "value": "https://developers.google.com/speed/docs/insights/LeverageBrowserCaching"
+        }
+       ]
+      },
+      "urls": [
+       {
+        "result": {
+         "format": "{{URL}} (expiration not specified)",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://www.redhat.com/assets/js/tracking/rh_omni_footer.js"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://www.googletagmanager.com/gtm.js?id=GTM-NJWS5L"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "15 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://cdn.tt.omtrdc.net/cdn/target.js"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "19 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://connect.facebook.net/en_US/fbevents.js"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "20 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/fonts/overpass_bold-web.woff"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/fonts/overpass_light-webfont.woff"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/fonts/overpass_regular-web.woff"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/fonts/rh-icons.woff"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/images/branding/RHLogo_white.svg"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/images/design/RHD-header-bg.svg"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/images/design/RHD-logo.svg"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/images/design/dotted_line-darkgrey.svg"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/images/design/dotted_line-grey.svg"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/images/design/join-now-bg.png"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/images/design/logo-summit.png"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/images/design/logo_devnation_footer.png"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/sites/default/files/css/css_epTQ8i8FXrtJM9IgAb-lNcmazofxUkxD1LXZaifa7BE.css?ofcsus"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/sites/default/files/css/css_fJSGC_69MLA2PukKR_x1DKCH0YRzHwSq0z6AwbLz4BQ.css?ofcsus"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/sites/default/files/js/js_aZIHeOXcP72Hm5c1zgrJc2ixkLrPEb37Q9S_wyCYtzA.js"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "30 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "https://issues.jboss.org/rest/collectors/1.0/configuration/trigger/f11b4bcd?os_authType=none&callback=trigger_f11b4bcd"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "60 minutes"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://www.google-analytics.com/analytics.js"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "2 hours"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}} ({{LIFETIME}})",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "https://snap.licdn.com/li.lms-analytics/insight.min.js"
+          },
+          {
+           "type": "DURATION",
+           "key": "LIFETIME",
+           "value": "3.4 hours"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "MainResourceServerResponseTime": {
+    "localizedRuleName": "Reduce server response time",
+    "ruleImpact": 0.0,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "Your server responded quickly. Learn more about {{BEGIN_LINK}}server response time optimization{{END_LINK}}.",
+     "args": [
+      {
+       "type": "HYPERLINK",
+       "key": "LINK",
+       "value": "https://developers.google.com/speed/docs/insights/Server"
+      }
+     ]
+    }
+   },
+   "MinifyCss": {
+    "localizedRuleName": "Minify CSS",
+    "ruleImpact": 0.0,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "Your CSS is minified. Learn more about {{BEGIN_LINK}}minifying CSS{{END_LINK}}.",
+     "args": [
+      {
+       "type": "HYPERLINK",
+       "key": "LINK",
+       "value": "https://developers.google.com/speed/docs/insights/MinifyResources"
+      }
+     ]
+    }
+   },
+   "MinifyHTML": {
+    "localizedRuleName": "Minify HTML",
+    "ruleImpact": 0.0,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "Your HTML is minified. Learn more about {{BEGIN_LINK}}minifying HTML{{END_LINK}}.",
+     "args": [
+      {
+       "type": "HYPERLINK",
+       "key": "LINK",
+       "value": "https://developers.google.com/speed/docs/insights/MinifyResources"
+      }
+     ]
+    }
+   },
+   "MinifyJavaScript": {
+    "localizedRuleName": "Minify JavaScript",
+    "ruleImpact": 5.4978,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "Compacting JavaScript code can save many bytes of data and speed up downloading, parsing, and execution time."
+    },
+    "urlBlocks": [
+     {
+      "header": {
+       "format": "{{BEGIN_LINK}}Minify JavaScript{{END_LINK}} for the following resources to reduce their size by {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction).",
+       "args": [
+        {
+         "type": "HYPERLINK",
+         "key": "LINK",
+         "value": "https://developers.google.com/speed/docs/insights/MinifyResources"
+        },
+        {
+         "type": "BYTES",
+         "key": "SIZE_IN_BYTES",
+         "value": "53.2KiB"
+        },
+        {
+         "type": "PERCENTAGE",
+         "key": "PERCENTAGE",
+         "value": "18%"
+        }
+       ]
+      },
+      "urls": [
+       {
+        "result": {
+         "format": "Minifying {{URL}} could save {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction) after compression.",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/sites/default/files/js/js_aZIHeOXcP72Hm5c1zgrJc2ixkLrPEb37Q9S_wyCYtzA.js"
+          },
+          {
+           "type": "BYTES",
+           "key": "SIZE_IN_BYTES",
+           "value": "53.2KiB"
+          },
+          {
+           "type": "PERCENTAGE",
+           "key": "PERCENTAGE",
+           "value": "18%"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "MinimizeRenderBlockingResources": {
+    "localizedRuleName": "Eliminate render-blocking JavaScript and CSS in above-the-fold content",
+    "ruleImpact": 6.0,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "Your page has {{NUM_CSS}} blocking CSS resources. This causes a delay in rendering your page.",
+     "args": [
+      {
+       "type": "INT_LITERAL",
+       "key": "NUM_CSS",
+       "value": "2"
+      }
+     ]
+    },
+    "urlBlocks": [
+     {
+      "header": {
+       "format": "None of the above-the-fold content on your page could be rendered without waiting for the following resources to load. Try to defer or asynchronously load blocking resources, or inline the critical portions of those resources directly in the HTML."
+      }
+     },
+     {
+      "header": {
+       "format": "{{BEGIN_LINK}}Optimize CSS Delivery{{END_LINK}} of the following:",
+       "args": [
+        {
+         "type": "HYPERLINK",
+         "key": "LINK",
+         "value": "https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery"
+        }
+       ]
+      },
+      "urls": [
+       {
+        "result": {
+         "format": "{{URL}}",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/sites/default/files/css/css_fJSGC_69MLA2PukKR_x1DKCH0YRzHwSq0z6AwbLz4BQ.css?ofcsus"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "{{URL}}",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://developers.redhat.com/sites/default/files/css/css_epTQ8i8FXrtJM9IgAb-lNcmazofxUkxD1LXZaifa7BE.css?ofcsus"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "OptimizeImages": {
+    "localizedRuleName": "Optimize images",
+    "ruleImpact": 10.3232,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "Properly formatting and compressing images can save many bytes of data."
+    },
+    "urlBlocks": [
+     {
+      "header": {
+       "format": "{{BEGIN_LINK}}Optimize the following images{{END_LINK}} to reduce their size by {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction).",
+       "args": [
+        {
+         "type": "HYPERLINK",
+         "key": "LINK",
+         "value": "https://developers.google.com/speed/docs/insights/OptimizeImages"
+        },
+        {
+         "type": "BYTES",
+         "key": "SIZE_IN_BYTES",
+         "value": "100.8KiB"
+        },
+        {
+         "type": "PERCENTAGE",
+         "key": "PERCENTAGE",
+         "value": "34%"
+        }
+       ]
+      },
+      "urls": [
+       {
+        "result": {
+         "format": "Compressing and resizing {{URL}} could save {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://static.jboss.org/images/rhd/feature/RHDev_homefeature_surveylocalization_30sept2016.png"
+          },
+          {
+           "type": "BYTES",
+           "key": "SIZE_IN_BYTES",
+           "value": "38.3KiB"
+          },
+          {
+           "type": "PERCENTAGE",
+           "key": "PERCENTAGE",
+           "value": "86%"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "Compressing and resizing {{URL}} could save {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://static.jboss.org/images/rhd/feature/RHDev_homefeature_javavisualstudio_30sep2016.png"
+          },
+          {
+           "type": "BYTES",
+           "key": "SIZE_IN_BYTES",
+           "value": "24.9KiB"
+          },
+          {
+           "type": "PERCENTAGE",
+           "key": "PERCENTAGE",
+           "value": "85%"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "Compressing {{URL}} could save {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://static.jboss.org/images/rhd/feature/RHDev_homefeature_microservicesforjava_13jun2016.png"
+          },
+          {
+           "type": "BYTES",
+           "key": "SIZE_IN_BYTES",
+           "value": "19KiB"
+          },
+          {
+           "type": "PERCENTAGE",
+           "key": "PERCENTAGE",
+           "value": "16%"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "Compressing {{URL}} could save {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://static.jboss.org/images/rhd/promo/RHDev_homepromo_devstudio10_16jun2016.png"
+          },
+          {
+           "type": "BYTES",
+           "key": "SIZE_IN_BYTES",
+           "value": "16.1KiB"
+          },
+          {
+           "type": "PERCENTAGE",
+           "key": "PERCENTAGE",
+           "value": "17%"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "Compressing and resizing {{URL}} could save {{SIZE_IN_BYTES}} ({{PERCENTAGE}} reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "key": "URL",
+           "value": "http://static.jboss.org/images/rhd/feature/RHDev_homefeature_microprofile_04oct2016.png"
+          },
+          {
+           "type": "BYTES",
+           "key": "SIZE_IN_BYTES",
+           "value": "2.6KiB"
+          },
+          {
+           "type": "PERCENTAGE",
+           "key": "PERCENTAGE",
+           "value": "36%"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "PrioritizeVisibleContent": {
+    "localizedRuleName": "Prioritize visible content",
+    "ruleImpact": 0.0,
+    "groups": [
+     "SPEED"
+    ],
+    "summary": {
+     "format": "You have the above-the-fold content properly prioritized. Learn more about {{BEGIN_LINK}}prioritizing visible content{{END_LINK}}.",
+     "args": [
+      {
+       "type": "HYPERLINK",
+       "key": "LINK",
+       "value": "https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "version": {
+  "major": 1,
+  "minor": 15
+ }
+}
