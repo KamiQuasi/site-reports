@@ -1,190 +1,223 @@
 {
-  "kind": "Template",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "reports",
-    "annotations": {
-      "description": "A suite of reports about the performance and health of a website",
-      "tags": "golang",
-      "iconClass": "icon-golang"
-    }
-  },
-  "labels": {
-    "template": "reports"
-  },
-  "objects": [
-    {
-      "kind": "Service",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "reports",
-        "annotations": {
-          "description": "Exposes and load balances the application pods"
-        }
-      },
-      "spec": {
-        "ports": [
-          {
-            "name": "web",
-            "port": 8080,
-            "targetPort": 8080
-          }
-        ],
-        "selector": {
-          "name": "reports"
-        }
-      }
-    },
-    {
-      "kind": "Route",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "reports"
-      },
-      "spec": {
-        "host": "${APPLICATION_DOMAIN}",
-        "to": {
-          "kind": "Service",
-          "name": "reports"
-        }
-      }
-    },
-    {
-      "kind": "ImageStream",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "reports",
-        "annotations": {
-          "description": "Keeps track of changes in the application image"
-        }
-      }
-    },
-    {
-      "kind": "BuildConfig",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "reports",
-        "annotations": {
-          "description": "Defines how to build the application"
-        }
-      },
-      "spec": {
-        "source": {
-          "type": "Git",
-          "git": {
-            "uri": "${SOURCE_REPOSITORY_URL}",
-            "ref": "${SOURCE_REPOSITORY_REF}"
-          },
-          "contextDir": "${CONTEXT_DIR}"
-        },
-        "strategy": {
-          "type": "Docker"
-        },
-        "output": {
-          "to": {
-            "kind": "ImageStreamTag",
-            "name": "reports:latest"
-          }
-        },
-        "triggers": [
-          {
-            "type": "ConfigChange"
-          },
-          {
-            "type": "GitHub",
-            "github": {
-              "secret": "${GITHUB_WEBHOOK_SECRET}"
-            }
-          }
-        ],
-        "postCommit": {
-          "script": "go test -v ./..."
-        }
-      }
-    },
-    {
-      "kind": "DeploymentConfig",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "site-reports",
-        "annotations": {
-          "description": "Defines how to deploy the application server"
-        }
-      },
-      "spec": {
-        "strategy": {
-          "type": "Recreate"
-        },
-        "triggers": [
-          {
-            "type": "ImageChange",
-            "imageChangeParams": {
-              "automatic": true,
-              "containerNames": [
-                "reports"
-              ],
-              "from": {
-                "kind": "ImageStreamTag",
-                "name": "reports:latest"
-              }
-            }
-          },
-          {
-            "type": "ConfigChange"
-          }
-        ],
-        "replicas": 1,
-        "selector": {
-          "name": "reports"
-        },
-        "template": {
-          "metadata": {
-            "name": "reports",
-            "labels": {
-              "name": "reports"
-            }
-          },
-          "spec": {
-            "containers": [
-              {
-                "name": "reports",
-                "image": "reports",
-                "ports": [
-                  {
-                    "containerPort": 8080
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      }
-    }
-  ],
-  "parameters": [
-    {
-      "name": "SOURCE_REPOSITORY_URL",
-      "description": "The URL of the repository with your application source code",
-      "value": "https://github.com/KamiQuasi/site-reports.git"
-    },
-    {
-      "name": "SOURCE_REPOSITORY_REF",
-      "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch"
-    },
-    {
-      "name": "CONTEXT_DIR",
-      "description": "Set this to the relative path to your project if it is not in the root of your repository"
-    },
-    {
-      "name": "APPLICATION_DOMAIN",
-      "description": "The exposed hostname that will route to the site-report service",
-      "value": "reports"
-    },
-    {
-      "name": "GITHUB_WEBHOOK_SECRET",
-      "description": "A secret string used to configure the GitHub webhook",
-      "generate": "expression",
-      "from": "[a-zA-Z0-9]{40}"
-    }
-  ]
+	"kind": "Template",
+	"apiVersion": "v1",
+	"metadata": {
+		"name": "rhd-reports",
+		"annotations": {
+			"description": "A suite of reports about the performance and health of a website",
+			"tags": "golang",
+			"iconClass": "icon-golang"
+		}
+	},
+	"labels": {
+		"template": "rhd-reports"
+	},
+	"objects": [{
+		"kind": "Service",
+		"apiVersion": "v1",
+		"metadata": {
+			"name": "rhd-reports",
+			"annotations": {
+				"description": "Exposes and load balances the application pods"
+			}
+		},
+		"spec": {
+			"ports": [{
+				"name": "web",
+				"port": 8080,
+				"targetPort": 8080
+			}],
+			"selector": {
+				"name": "rhd-reports"
+			}
+		}
+	}, {
+		"kind": "Route",
+		"apiVersion": "v1",
+		"metadata": {
+			"name": "rhd-reports"
+		},
+		"spec": {
+			"host": "${APPLICATION_DOMAIN}",
+			"to": {
+				"kind": "Service",
+				"name": "rhd-reports"
+			}
+		}
+	}, {
+		"kind": "ImageStream",
+		"apiVersion": "v1",
+		"metadata": {
+			"name": "rhd-reports",
+			"annotations": {
+				"description": "Keeps track of changes in the application image"
+			}
+		}
+	}, {
+		"kind": "BuildConfig",
+		"apiVersion": "v1",
+		"metadata": {
+			"name": "rhd-reports",
+			"annotations": {
+				"description": "Defines how to build the application"
+			}
+		},
+		"spec": {
+			"source": {
+				"type": "Git",
+				"git": {
+					"uri": "${SOURCE_REPOSITORY_URL}",
+					"ref": "${SOURCE_REPOSITORY_REF}"
+				},
+				"contextDir": "${CONTEXT_DIR}"
+			},
+			"strategy": {
+				"type": "Docker"
+			},
+			"output": {
+				"to": {
+					"kind": "ImageStreamTag",
+					"name": "rhd-reports:latest"
+				}
+			},
+			"triggers": [{
+				"type": "ConfigChange"
+			}, {
+				"type": "GitHub",
+				"github": {
+					"secret": "${GITHUB_WEBHOOK_SECRET}"
+				}
+			}],
+			"postCommit": {
+				"script": "go test -v ./..."
+			}
+		}
+	}, {
+		"kind": "PersistentVolume",
+		"apiVersion": "v1",
+		"metadata": {
+			"name": "rhd-reports"
+		},
+		"spec": {
+			"capacity": {
+				"storage": "1Gi"
+			},
+			"accessModes": [
+				"ReadWriteOnce"
+			],
+			"persistentVolumeReclaimPolicy": "Retain",
+			"nfs": {
+				"path": "/tmp",
+				"server": ""
+			}
+		}
+	}, {
+		"kind": "PersistentVolumeClaim",
+		"apiVersion": "v1",
+		"metadata": {
+			"name": "rhd-reports"
+		},
+		"spec": {
+			"resources": {
+				"requests": {
+					"storage": "1Gi"
+				}
+			},
+			"accessModes": [
+				"ReadWriteOnce"
+			]
+		}
+	}, {
+		"kind": "Pod",
+		"apiVersion": "v1",
+		"metadata": {
+			"name": "rhd-reports"
+		},
+		"spec": {
+			"containers": [{
+				"name": "rhd-reports",
+				"image": "rhd-reports",
+				"volumeMounts": [{
+					"mountPath": "/tmp",
+					"name": "rhd-reports"
+				}]
+			}],
+			"volumes": [{
+				"name": "rhd-reports",
+				"persistentVolumeClaim": {
+					"claimName": "rhd-reports"
+				}
+			}]
+		}
+	}, {
+		"kind": "DeploymentConfig",
+		"apiVersion": "v1",
+		"metadata": {
+			"name": "rhd-reports",
+			"annotations": {
+				"description": "Defines how to deploy the application server"
+			}
+		},
+		"spec": {
+			"strategy": {
+				"type": "Recreate"
+			},
+			"triggers": [{
+				"type": "ImageChange",
+				"imageChangeParams": {
+					"automatic": true,
+					"containerNames": [
+						"rhd-reports"
+					],
+					"from": {
+						"kind": "ImageStreamTag",
+						"name": "rhd-reports:latest"
+					}
+				}
+			}, {
+				"type": "ConfigChange"
+			}],
+			"replicas": 1,
+			"selector": {
+				"name": "rhd-reports"
+			},
+			"template": {
+				"metadata": {
+					"name": "rhd-reports",
+					"labels": {
+						"name": "rhd-reports"
+					}
+				},
+				"spec": {
+					"containers": [{
+						"name": "rhd-reports",
+						"image": "rhd-reports",
+						"ports": [{
+							"containerPort": 8080
+						}]
+					}]
+				}
+			}
+		}
+	}],
+	"parameters": [{
+		"name": "SOURCE_REPOSITORY_URL",
+		"description": "The URL of the repository with your application source code",
+		"value": "https://github.com/KamiQuasi/site-reports.git"
+	}, {
+		"name": "SOURCE_REPOSITORY_REF",
+		"description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch"
+	}, {
+		"name": "CONTEXT_DIR",
+		"description": "Set this to the relative path to your project if it is not in the root of your repository"
+	}, {
+		"name": "APPLICATION_DOMAIN",
+		"description": "The exposed hostname that will route to the site-report service",
+		"value": "reports"
+	}, {
+		"name": "GITHUB_WEBHOOK_SECRET",
+		"description": "A secret string used to configure the GitHub webhook",
+		"generate": "expression",
+		"from": "[a-zA-Z0-9]{40}"
+	}]
 }
