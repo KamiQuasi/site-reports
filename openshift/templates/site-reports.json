@@ -112,7 +112,7 @@
 		"kind": "DeploymentConfig",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "reports-deploy",
+			"name": "reports-www",
 			"annotations": {
 				"description": "Defines how to deploy the application server"
 			}
