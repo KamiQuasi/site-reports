@@ -93,25 +93,6 @@
 			}
 		}
 	}, {
-		"kind": "PersistentVolume",
-		"apiVersion": "v1",
-		"metadata": {
-			"name": "rhd-reports"
-		},
-		"spec": {
-			"capacity": {
-				"storage": "1Gi"
-			},
-			"accessModes": [
-				"ReadWriteOnce"
-			],
-			"persistentVolumeReclaimPolicy": "Retain",
-			"nfs": {
-				"path": "/tmp",
-				"server": ""
-			}
-		}
-	}, {
 		"kind": "PersistentVolumeClaim",
 		"apiVersion": "v1",
 		"metadata": {
