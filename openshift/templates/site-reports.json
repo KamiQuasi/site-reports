@@ -152,7 +152,7 @@
 						"name": "reports",
 						"image": "reports",
 						"volumeMounts": [{
-							"mountPath": "/data",
+							"mountPath": "/go/src/github.com/KamiQuasi/site-reports/data",
 							"name": "reports"
 						}],
 						"ports": [{

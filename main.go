@@ -8,8 +8,7 @@ import (
 	"net/http"
 
 	"github.com/cayleygraph/cayley"
-	"github.com/cayleygraph/cayley/graph"
-	_ "github.com/cayleygraph/cayley/graph/bolt"
+	// _ "github.com/cayleygraph/cayley/graph/bolt"
 	"github.com/cayleygraph/cayley/quad"
 	"github.com/spf13/viper"
 )
@@ -60,14 +59,19 @@ func main() {
 	}
 	viper.SetDefault("ip", "127.0.0.1")
 	viper.SetDefault("port", "8080")
-	viper.SetDefault("db", "/data/sites.boltdb")
+	// viper.SetDefault("db", "/data/sites.boltdb")
 	viper.SetEnvPrefix("OPENSHIFT")
 	viper.BindEnv("ip", "GO_IP")
 	viper.BindEnv("port", "GO_PORT")
 
-	graph.InitQuadStore("bolt", viper.GetString("db"), nil)
+	// graph.InitQuadStore("bolt", viper.GetString("db"), nil)
 
-	store, err := cayley.NewGraph("bolt", viper.GetString("db"), nil)
+	// store, err := cayley.NewGraph("bolt", viper.GetString("db"), nil)
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// }
+
+	store, err := cayley.NewMemoryGraph()
 	if err != nil {
 		log.Fatalln(err)
 	}
