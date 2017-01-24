@@ -10,13 +10,13 @@
 		}
 	},
 	"labels": {
-		"template": "report-www"
+		"template": "reports"
 	},
 	"objects": [{
 		"kind": "Service",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "report-svc",
+			"name": "reports",
 			"annotations": {
 				"description": "Exposes and load balances the application pods"
 			}
@@ -28,27 +28,27 @@
 				"targetPort": 80
 			}],
 			"selector": {
-				"name": "report-www"
+				"name": "reports"
 			}
 		}
 	}, {
 		"kind": "Route",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "reports-rte"
+			"name": "reports"
 		},
 		"spec": {
 			"host": "${APPLICATION_DOMAIN}",
 			"to": {
 				"kind": "Service",
-				"name": "report-svc"
+				"name": "reports"
 			}
 		}
 	}, {
 		"kind": "ImageStream",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "reports-img",
+			"name": "reports",
 			"annotations": {
 				"description": "Keeps track of changes in the application image"
 			}
@@ -57,7 +57,7 @@
 		"kind": "BuildConfig",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "reports-build",
+			"name": "reports",
 			"annotations": {
 				"description": "Defines how to build the application"
 			}
@@ -77,7 +77,7 @@
 			"output": {
 				"to": {
 					"kind": "ImageStreamTag",
-					"name": "reports-img:latest"
+					"name": "reports:latest"
 				}
 			},
 			"triggers": [{
@@ -96,7 +96,7 @@
 		"kind": "PersistentVolumeClaim",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "reports-hdd"
+			"name": "reports"
 		},
 		"spec": {
 			"resources": {
@@ -112,7 +112,7 @@
 		"kind": "DeploymentConfig",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "reports-deploy",
+			"name": "reports",
 			"annotations": {
 				"description": "Defines how to deploy the application server"
 			}
@@ -123,18 +123,18 @@
 			},
 			"replicas": 1,
 			"selector": {
-				"name": "reports-www"
+				"name": "reports"
 			},
 			"triggers": [{
 				"type": "ImageChange",
 				"imageChangeParams": {
 					"automatic": true,
 					"containerNames": [
-						"reports-www"
+						"reports"
 					],
 					"from": {
 						"kind": "ImageStreamTag",
-						"name": "reports-img:latest"
+						"name": "reports:latest"
 					}
 				}
 			}, {
@@ -142,27 +142,27 @@
 			}],
 			"template": {
 				"metadata": {
-					"name": "reports-www",
+					"name": "reports",
 					"labels": {
-						"name": "reports-www"
+						"name": "reports"
 					}
 				},
 				"spec": {
 					"containers": [{
-						"name": "reports-www",
-						"image": "reports-img",
+						"name": "reports",
+						"image": "reports",
 						"volumeMounts": [{
 							"mountPath": "/data",
-							"name": "reports-hdd"
+							"name": "reports"
 						}],
 						"ports": [{
 							"containerPort": 8080
 						}]
 					}],
 					"volumes": [{
-						"name": "reports-hdd",
+						"name": "reports",
 						"persistentVolumeClaim": {
-							"claimName": "reports-hdd"
+							"claimName": "reports"
 						}
 					}]
 				}
