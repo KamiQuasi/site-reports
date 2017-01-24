@@ -2,7 +2,7 @@
 	"kind": "Template",
 	"apiVersion": "v1",
 	"metadata": {
-		"name": "rhd-reports",
+		"name": "rhd",
 		"annotations": {
 			"description": "A suite of reports about the performance and health of a website",
 			"tags": "golang",
@@ -10,13 +10,13 @@
 		}
 	},
 	"labels": {
-		"template": "rhd-reports"
+		"template": "reports"
 	},
 	"objects": [{
 		"kind": "Service",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "rhd-reports",
+			"name": "report-svc",
 			"annotations": {
 				"description": "Exposes and load balances the application pods"
 			}
@@ -28,27 +28,27 @@
 				"targetPort": 8080
 			}],
 			"selector": {
-				"name": "rhd-reports"
+				"name": "report-www"
 			}
 		}
 	}, {
 		"kind": "Route",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "rhd-reports"
+			"name": "reports"
 		},
 		"spec": {
 			"host": "${APPLICATION_DOMAIN}",
 			"to": {
 				"kind": "Service",
-				"name": "rhd-reports"
+				"name": "report-svc"
 			}
 		}
 	}, {
 		"kind": "ImageStream",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "rhd-reports",
+			"name": "reports-img",
 			"annotations": {
 				"description": "Keeps track of changes in the application image"
 			}
@@ -57,7 +57,7 @@
 		"kind": "BuildConfig",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "rhd-reports",
+			"name": "reports-build",
 			"annotations": {
 				"description": "Defines how to build the application"
 			}
@@ -77,7 +77,7 @@
 			"output": {
 				"to": {
 					"kind": "ImageStreamTag",
-					"name": "rhd-reports:latest"
+					"name": "reports-img:latest"
 				}
 			},
 			"triggers": [{
@@ -96,7 +96,7 @@
 		"kind": "PersistentVolumeClaim",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "rhd-reports"
+			"name": "reports-hdd"
 		},
 		"spec": {
 			"resources": {
@@ -112,34 +112,34 @@
 		"kind": "DeploymentConfig",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "rhd-reports",
+			"name": "reports-deploy",
 			"annotations": {
 				"description": "Defines how to deploy the application server"
 			}
 		},
 		"spec": {
 			"strategy": {
-				"type": "Recreate"
+				"type": "Rolling"
+			},
+			"replicas": 1,
+			"selector": {
+				"name": "rhd-reports"
 			},
 			"triggers": [{
 				"type": "ImageChange",
 				"imageChangeParams": {
 					"automatic": true,
 					"containerNames": [
-						"rhd-reports"
+						"reports-www"
 					],
 					"from": {
 						"kind": "ImageStreamTag",
-						"name": "rhd-reports:latest"
+						"name": "reports-img:latest"
 					}
 				}
 			}, {
 				"type": "ConfigChange"
 			}],
-			"replicas": 1,
-			"selector": {
-				"name": "rhd-reports"
-			},
 			"template": {
 				"metadata": {
 					"name": "rhd-reports",
@@ -149,20 +149,20 @@
 				},
 				"spec": {
 					"containers": [{
-						"name": "rhd-reports",
-						"image": "rhd-reports",
+						"name": "reports-www",
+						"image": "reports-img",
 						"volumeMounts": [{
 							"mountPath": "/data",
-							"name": "rhd-reports"
+							"name": "reports-hdd"
 						}],
 						"ports": [{
 							"containerPort": 8080
 						}]
 					}],
 					"volumes": [{
-						"name": "rhd-reports",
+						"name": "reports-hdd",
 						"persistentVolumeClaim": {
-							"claimName": "rhd-reports"
+							"claimName": "reports-hdd"
 						}
 					}]
 				}
@@ -181,7 +181,7 @@
 		"description": "Set this to the relative path to your project if it is not in the root of your repository"
 	}, {
 		"name": "APPLICATION_DOMAIN",
-		"description": "The exposed hostname that will route to the site-report service",
+		"description": "The exposed hostname that will route to the rhd-report service",
 		"value": "reports"
 	}, {
 		"name": "GITHUB_WEBHOOK_SECRET",
