@@ -109,28 +109,6 @@
 			]
 		}
 	}, {
-		"kind": "Pod",
-		"apiVersion": "v1",
-		"metadata": {
-			"name": "rhd-reports"
-		},
-		"spec": {
-			"containers": [{
-				"name": "rhd-reports",
-				"image": "rhd-reports",
-				"volumeMounts": [{
-					"mountPath": "/tmp",
-					"name": "rhd-reports"
-				}]
-			}],
-			"volumes": [{
-				"name": "rhd-reports",
-				"persistentVolumeClaim": {
-					"claimName": "rhd-reports"
-				}
-			}]
-		}
-	}, {
 		"kind": "DeploymentConfig",
 		"apiVersion": "v1",
 		"metadata": {
@@ -173,9 +151,19 @@
 					"containers": [{
 						"name": "rhd-reports",
 						"image": "rhd-reports",
+						"volumeMounts": [{
+							"mountPath": "/data",
+							"name": "rhd-reports"
+						}],
 						"ports": [{
 							"containerPort": 8080
 						}]
+					}],
+					"volumes": [{
+						"name": "rhd-reports",
+						"persistentVolumeClaim": {
+							"claimName": "rhd-reports"
+						}
 					}]
 				}
 			}

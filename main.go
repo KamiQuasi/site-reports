@@ -60,7 +60,7 @@ func main() {
 	}
 	viper.SetDefault("ip", "127.0.0.1")
 	viper.SetDefault("port", "8080")
-	viper.SetDefault("db", "/tmp/sites.boltdb")
+	viper.SetDefault("db", "/data/sites.boltdb")
 	viper.SetEnvPrefix("OPENSHIFT")
 	viper.BindEnv("ip", "GO_IP")
 	viper.BindEnv("port", "GO_PORT")
