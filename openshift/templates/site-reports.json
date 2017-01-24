@@ -10,7 +10,7 @@
 		}
 	},
 	"labels": {
-		"template": "site-reports"
+		"template": "report-www"
 	},
 	"objects": [{
 		"kind": "Service",
@@ -35,7 +35,7 @@
 		"kind": "Route",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "reports"
+			"name": "reports-rte"
 		},
 		"spec": {
 			"host": "${APPLICATION_DOMAIN}",
@@ -112,7 +112,7 @@
 		"kind": "DeploymentConfig",
 		"apiVersion": "v1",
 		"metadata": {
-			"name": "reports-www",
+			"name": "reports-deploy",
 			"annotations": {
 				"description": "Defines how to deploy the application server"
 			}
@@ -123,7 +123,7 @@
 			},
 			"replicas": 1,
 			"selector": {
-				"name": "rhd-reports"
+				"name": "reports-www"
 			},
 			"triggers": [{
 				"type": "ImageChange",
