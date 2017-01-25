@@ -93,22 +93,6 @@
 			}
 		}
 	}, {
-		"kind": "PersistentVolumeClaim",
-		"apiVersion": "v1",
-		"metadata": {
-			"name": "reports"
-		},
-		"spec": {
-			"resources": {
-				"requests": {
-					"storage": "1Gi"
-				}
-			},
-			"accessModes": [
-				"ReadWriteOnce"
-			]
-		}
-	}, {
 		"kind": "DeploymentConfig",
 		"apiVersion": "v1",
 		"metadata": {
@@ -151,19 +135,9 @@
 					"containers": [{
 						"name": "reports",
 						"image": "reports",
-						"volumeMounts": [{
-							"mountPath": "/go/src/github.com/KamiQuasi/site-reports/data",
-							"name": "reports"
-						}],
 						"ports": [{
 							"containerPort": 8080
 						}]
-					}],
-					"volumes": [{
-						"name": "reports",
-						"persistentVolumeClaim": {
-							"claimName": "reports"
-						}
 					}]
 				}
 			}
