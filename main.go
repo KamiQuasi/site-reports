@@ -8,7 +8,6 @@ import (
 	"net/http"
 
 	"github.com/cayleygraph/cayley"
-	// _ "github.com/cayleygraph/cayley/graph/bolt"
 	"github.com/cayleygraph/cayley/quad"
 	"github.com/spf13/viper"
 )
@@ -113,7 +112,8 @@ func serviceHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func siteHandler(w http.ResponseWriter, r *http.Request) {
-	store, err := cayley.NewGraph("bolt", viper.GetString("db"), nil)
+	//store, err := cayley.NewGraph("bolt", viper.GetString("db"), nil)
+	store, err := cayley.NewMemoryGraph()
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -145,7 +145,8 @@ func siteHandler(w http.ResponseWriter, r *http.Request) {
 func home(w http.ResponseWriter, r *http.Request) {
 	var sites []Site
 	// Create a brand new graph
-	store, err := cayley.NewGraph("bolt", viper.GetString("db"), nil)
+	//store, err := cayley.NewGraph("bolt", viper.GetString("db"), nil)
+	store, err := cayley.NewMemoryGraph()
 	if err != nil {
 		log.Fatalln(err)
 	}
