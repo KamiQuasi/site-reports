@@ -2,9 +2,9 @@
 	"kind": "Template",
 	"apiVersion": "v1",
 	"metadata": {
-		"name": "rhd",
+		"name": "rhdp",
 		"annotations": {
-			"description": "A suite of reports about the performance and health of a website",
+			"description": "A reporting suite about the performance and health of websites",
 			"tags": "golang",
 			"iconClass": "icon-golang"
 		}
@@ -25,7 +25,7 @@
 			"ports": [{
 				"name": "web",
 				"port": 8080,
-				"targetPort": 80
+				"targetPort": 8080
 			}],
 			"selector": {
 				"name": "reports"
